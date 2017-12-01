@@ -17,40 +17,17 @@
 
 <Server port='-1'>
 
-<GlobalNamingResources>
-    <!-- Editable user database that can also be used by
-         UserDatabaseRealm to authenticate users
-    -->
-    <Resource name="UserDatabase" auth="Container"
-              type="org.apache.catalina.UserDatabase"
-              description="User database that can be updated and saved"
-              factory="org.apache.catalina.users.MemoryUserDatabaseFactory"
-              pathname="conf/tomcat-users.xml" />
-  </GlobalNamingResources>
-
-
     <Service name='Catalina'>
         <Connector port='${http.port}' bindOnInit='false' connectionTimeout='20000'/>
 
         <Engine defaultHost='localhost' name='Catalina'>
             <Valve className='org.apache.catalina.valves.RemoteIpValve' protocolHeader='x-forwarded-proto'/>
-            <Valve className='com.gopivotal.cloudfoundry.tomcat.logging.access.CloudFoundryAccessLoggingValve'
+            <Valve className='org.cloudfoundry.tomcat.logging.access.CloudFoundryAccessLoggingValve'
                    pattern='[ACCESS] %{org.apache.catalina.AccessLog.RemoteAddr}r %l %t %D %F %B %S vcap_request_id:%{X-Vcap-Request-Id}i'
                    enabled='${access.logging.enabled}'/>
-
-	<Realm className="org.apache.catalina.realm.LockOutRealm">
-        <!-- This Realm uses the UserDatabase configured in the global JNDI
-             resources under the key "UserDatabase".  Any edits
-             that are performed against this UserDatabase are immediately
-             available for use by the Realm.  -->
-        <Realm className="org.apache.catalina.realm.UserDatabaseRealm"
-               resourceName="UserDatabase"/>
-      </Realm>
-
             <Host name='localhost'
                   failCtxIfServletStartFails='true'>
-                <Listener className='com.gopivotal.cloudfoundry.tomcat.lifecycle.ApplicationStartupFailureDetectingLifecycleListener'/>
-		<Valve className="org.kie.integration.tomcat.JACCValve"/>
+                <Listener className='org.cloudfoundry.tomcat.lifecycle.ApplicationStartupFailureDetectingLifecycleListener'/>
             </Host>
         </Engine>
     </Service>
