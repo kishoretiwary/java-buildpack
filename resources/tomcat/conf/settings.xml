@@ -14,9 +14,9 @@
                         <enabled>true</enabled>
                         <updatePolicy>always</updatePolicy>
                     </snapshots>
-                    <id>cvs-eom-ere-releases-local</id>
-                    <name>cvs-eom-ere-releases-local</name>
-                    <url>https://cicd-artifactoryoss-01.pcf-east.cvshealthcloud.com/artifactory/cvs-eom-ere-releases-local</url>
+                    <id>LINKS-BRMS-PROD</id>
+                    <name>LINKS-BRMS-PROD</name>
+                    <url>https://cicd-artifactoryoss-01.pcf-east.cvshealthcloud.com/artifactory/LINKS-BRMS-PROD</url>
                 </repository>
             </repositories>
             <pluginRepositories>
@@ -29,9 +29,9 @@
                         <enabled>true</enabled>
                         <updatePolicy>always</updatePolicy>
                     </snapshots>
-                    <id>cvs-eom-ere-releases-local</id>
-                    <name>cvs-eom-ere-releases-local</name>
-                    <url>https://cicd-artifactoryoss-01.pcf-east.cvshealthcloud.com/artifactory/cvs-eom-ere-releases-local</url>
+                    <id>LINKS-BRMS-PROD</id>
+                    <name>LINKS-BRMS-PROD</name>
+                    <url>https://cicd-artifactoryoss-01.pcf-east.cvshealthcloud.com/artifactory/LINKS-BRMS-PROD</url>
                 </pluginRepository>
             </pluginRepositories>
             <id>cvs-eom-ere-releases-local</id>
@@ -39,11 +39,11 @@
     </profiles>
           
     <activeProfiles>
-        <activeProfile>cvs-eom-ere-releases-local</activeProfile>
+        <activeProfile>LINKS-BRMS-PROD</activeProfile>
     </activeProfiles>
     <servers>
       <server>
-         <id>cvs-eom-ere-releases-local</id>
+         <id>LINKS-BRMS-PROD</id>
          <username>${env.MVN_SERVER_USER}</username>
          <password>${env.MVN_SERVER_KEY}</password>
       </server>
